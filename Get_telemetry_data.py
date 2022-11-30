@@ -1,10 +1,8 @@
-import psycopg2
-
 
 def get_telemetry_data(df, telemetry_list,
-                       pd,conn):  # Takes a File and a list of telemetry and return a dataframe of list of telemetry ,
+                       pd, conn):  # Takes a File and a list of telemetry and return a dataframe of list of telemetry ,
     # ts and id
-    conn = psycopg2.connect(host="localhost", port=5434, database="rm_iiot", user="postgres", password="postgres")
+
     # ts_kv_dict = pd.read_csv('ts_kv_d.csv', index_col=0)
     sql = '''select * from ts_kv_dictionary;'''
     ts_kv_dict = pd.read_sql_query(sql, conn)
